@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		{% load staticfiles %}
+		<link rel="stylesheet" type="text/css" href="{% static "blog/css/style.css" %}">
+		<title>Test!</title>
+	</head>
+	<body>
+		<form method="post">
+			{% csrf_token %}
+			What is your birthday?
+			<br>
+			<label>
+				Month
+				<input type="text" name="month" value="{{ month }}">
+				{% if month_error %}
+				<div class="error"><strong>{{ month_error }}</strong></div>
+				{% endif %}
+			</label>
+			<br>
+			<label>
+				Date
+				<input type="text" name="day" value="{{ day }}">
+				{% if day_error %}
+				<div class="error"><strong>{{ day_error }}</strong></div>
+				{% endif %}
+			</label>
+			<br>
+			<label>
+				Year
+				<input type="text" name="year" value="{{ year }}">
+				{% if year_error %}
+				<div class="error"><strong>{{ year_error }}</strong></div>
+				{% endif %}
+			</label>
+			<br>
+			<input type="submit" value="Submit!"/>
+		</form>
+	</body>
+</html>

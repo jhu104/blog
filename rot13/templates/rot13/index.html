@@ -1,0 +1,8 @@
+<form method='post' action="{%url 'rot13:index' %}">
+	{% csrf_token %}
+	<label>
+		Enter Plaintext<br>
+		<textarea name='text'>{{encrypted}}</textarea>
+		<input type="submit"/>
+	</label>
+</form>

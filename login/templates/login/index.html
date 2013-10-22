@@ -1,0 +1,47 @@
+<html>
+	{% load staticfiles %}
+	<head>
+		<title>Welcome!</title>
+		<link rel="stylesheet" type="text/css" href="{% static 'login/style.css' %}">
+	</head>
+	<body>
+		<form method="post" >
+			{% csrf_token %}
+			<table>
+				<thead><h1>Jaywalk It Blog</h1></thead>
+				<tr>
+					<td>Name:</td>
+					<td><input type="text" name="username" value="{{ username }}"/></td>
+					{% if username_error %}
+						<td class="error">{{ username_error }}</td>
+					{% endif %}
+				</tr>
+				<tr>
+					<td>Password:</td>
+					<td><input type="password" name="password"/></td>
+					{% if password_error %}
+						<td class="error">{{ password_error }}</td>
+					{% endif %}
+				</tr>
+				<tr>
+					<td>Retype Password:</td>
+					<td><input type="password" name="verify"/></td>
+					{% if password_error %}
+						<td class="error">{{ password_error }}</td>
+					{% endif %}
+				</tr>
+				<tr>
+					<td>Email:</td>
+					<td><input type="text" name="email" value="{{ email }}"/></td>
+					{% if email_error %}
+						<td class="error">{{ email_error }}</td>
+						{% endif %}
+				</tr>
+				<tr>
+					<td></td>
+					<td><input type="submit" value="Log In"/></td>
+				</tr>
+			</table>
+		</form>
+	</body>
+</head>
